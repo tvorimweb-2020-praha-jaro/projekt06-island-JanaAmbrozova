@@ -21,7 +21,7 @@ body {
 .hlavicka {
     background-size: cover;
     background-position: center;
-    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/island-hlavicka.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/island-hlavicka.jpg);
     padding: 20px;
 }
 .titulek,
@@ -42,52 +42,72 @@ body {
     color: white;
 }
 .autor {
+    position: relative;
     margin: 0 0 10px 0;
     font-style: italic;
     color: darkgrey;
 }
+.autor::before {
+    position: absolute;
+    content: "";
+    border: 1px solid darkgrey;
+    width: 13%;
+    left: 42%;
+    top: -10px; 
+}
 
 /* MENU */
 .menu { 
-    margin: 0 0 20px 0;
-    padding: 20px;
-    list-style: none;  
+    padding: 30px;
+    list-style-type: none;  
+    font-family: 'Raleway', serif;
+    font-size: 9px;
+}
+menu ul {
+    padding: 0px;
+    margin: 0px;
 }
 .menu li {
     display: block;
-    border-bottom: solid lightgrey 0.05px;
-    padding:5px;
+    border-bottom: solid #f0eeee 1px;
+    padding: 5px;
+    text-transform: uppercase;
+    text-align: center;    
 }
 .menu a {
-    display: block;
-    font-family: 'Raleway', serif;
-    font-size: 9px;
-    text-transform: uppercase;
-    text-align: center;   
     color: lightgrey;
     text-decoration: none;
 }
 .menu a:hover {
+    color: darkgrey;
 }
 
 /* OBSAH */
-p {
-    margin: 0 0 10px 0;
-    padding: 0px 15px;
-    color: black;
-}
 h2 {
-    margin: 0 0 30px 0;
+    position: relative;
+    margin: 0 0 20px 0;
     padding: 15px;
     font-size: 18px;
     font-family: 'Raleway', serif;
 }
-h2:after, p:before {
+h2:after {
+    position: absolute;
     content:"";
+    border: 1.5px solid rgb(80, 156, 214);
+    width: 15%;
+    left: 0;
+    bottom: 0px;
 }
+p {
+    margin: 0 0 10px 0;
+    padding: 0px 15px;
+    color: rgb(87, 86, 86);
+}
+
 img {
     margin-top: 30px;
     width: 100%;
+    height: auto;
 }
 
 /* FOTOGALERIE */
@@ -108,12 +128,15 @@ img {
     color: darkgrey;
 }
 .popisek-copy {
-    font-weight: lighter;
-    font-size: 8px;
+    font-weight: normal;
+    font-size: 9px;
 }
 .foto img {
     display: block;
     margin: 0;
+}
+.fotogalerie {
+    margin-top: 50px;
 }
 
 /* PATICKA */
@@ -121,8 +144,8 @@ img {
     font-size: 9px;
     color: darkgrey;
     background-image: linear-gradient(lightgrey, white);
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding: 15px 0;
+
 }
 .paticka p {
     color:darkgrey;
@@ -135,6 +158,38 @@ img {
 }
 
 @media (min-width: 480px) {
+    .hlavicka {
+        height: 330px;
+        padding: 20px;
+    }
+    .titulek {
+        font-size: 60px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h2:after {
+        width: 8%;
+        left: 0;
+        bottom: 0px;
+    }
+    .autor::before {
+        width: 8%;
+        left: 46%;  
+    } 
+    .menu {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 12px;
+    }
+    .menu li {
+        flex: 1 1 25%;
+        border-top: solid #f0eeee 1px;
+        border-bottom: solid #f0eeee 1px;
+    }
+    menu a {
+        font-size: 15px;    
+    }
     .galerie {
         display: flex;
         flex-wrap: wrap;  
@@ -143,29 +198,78 @@ img {
         flex: 1 1 50%;
         max-width: 50%;
     }
-    .titulek {
-        font-size: 45px;
+    .popisek {
+        text-align: right;
+        color: white;
+        font-size: 11px;
+        transform: translate(0px, -30px);
+    }
+    .popisek a {
+        color: white;
     }
     .foto .popisek {
         display: none;
     }
     p {
-        font-size: 9px;
+        font-size: 15px;
     }
-    .menu {
-        font-size: 9px;
-    }
-    .menu li {
-        display: inline-block;
-        border-top: solid 0.05px lightgrey;
-        border-bottom: solid 0.05px lightgrey;
-        width: 100%;
-    }
-    li {
-        max-width: 24%;
-       }
+   
 
 @media (min-width: 860px) {
+    .hlavicka {
+        position: relative;
+        height: 500px;
+        padding: 50px 270px;
+    }
+    .titulek {
+        font-size: 70px;
+    }
+    .clanek {
+        position: absolute;
+        width: 80%;
+        box-shadow: lightgrey 0px 2px 8px;
+        left: 10%;
+        top: 420px;
+        background-color: #f5f5f5;       
+    }
+    .intro {
+        display: flex;
+    }
+    .menu {
+        flex: 1 1 20%;
+        display: block;  
+        margin: 0;
+        padding:50px 40px; 
+    }
+    .uvod {
+        flex: 1 1 80%;
+        margin-top: 50px;
+    }
+    .menu li {
+        border-bottom: solid #f0eeee 1px;
+        padding: 5px;
+        text-align: left;
+        font-size: 13px;
+    }
+    h2 {
+        padding: 40px;
+        font-size: 40px;
+    }
+    p {
+        padding: 20px 40px;
+        font-size: 20px;
+        margin: 0;
+    }
+    .why {
+        padding-right: 250px;
+    }
+    .reco1,
+    .reco2 {
+        padding-left:250px;
+    }
+   .obrazek {
+        max-width: 100%;
+    } 
     .galerie {
         display: flex;
         flex-wrap: wrap;
@@ -173,47 +277,14 @@ img {
     .foto {
         flex: 1 1 calc(100% / 3);
     }
-    .hlavicka {
-        position: relative;
-        height: 350px;
-        padding: 50px 200px;
-    }
-    .titulek {
-        font-size: 55px;
-    }
-    .clanek {
-        position: absolute;
-        width: 80%;
-        box-shadow: lightgrey 2px 2px 8px;
-        left: 10%;
-        top: 300px;
-        background-color: #f5f5f5;       
-    }
-    .menu li {
-        display: block;
-        border: none;
-        border-bottom: solid lightgrey 0.05px;
-    }
-    p {
-        padding: 0px 50px 0px 200px;
-        font-size: 11px;
-    }
-    h2 {
-        padding: 15px 50px 0px 200px;
-        font-size: 22px;
-    }
-    .proc p {
-        padding: 0px 210px 0px 40px;
-    }
-    .proc h2 {
-        padding: 15px 210px 0px 40px;
-    }
     .fotogalerie h2 {
-        padding: 15px 210px 0px 40px;
+        padding: 40px;
     }
     footer p {
-        padding: 0px;
+        padding: 20px 0px;
+        font-size: 15px;
     }
+   
     
     
   
